@@ -1,23 +1,22 @@
 doctype
 html
-  head
-    title #{title}
-  body
-    header
-      h1 #{message}
-    .container
-      .main-content
-        form(method='post' action='/adddata' id='adduser')
-            table
-                tr
-                    td
-                        input(type='text' name='fname')
-                tr
-                    td
-                        input(type='text' name='lname')
-                tr
-                    td
-                        input(type='number' name='age')
-                tr
-                    td
-                        input(type='submit' value='add')
+    head
+        title #{title}
+        link(href='/css/bootstrap.min.css' type='text/css' rel='stylesheet')
+    body
+        header
+            h1(class='text-center') #{message}
+        .container
+            .main-content
+                form(method='post' action='/adddata' id='adduser' class='form-group')
+                    div(class='form-group')
+                        label Firstname
+                        input(type='text' class='form-control' name='fname')
+                    div(class='form-group')
+                        label Lastname
+                        input(type='text' class='form-control' name='lname')
+                    div(class='form-group')
+                        label Marks
+                        input(type='number' class='form-control' name='age')
+                    div(class='form-group')
+                        input(type='submit' value='Registration' class='btn btn-success')

@@ -3,6 +3,8 @@ var custom = require('./custom_model');
 var mongodb = require('mongoose');
 //var ejsview = require('ejs');
 var bodyParser = require('body-parser');
+//var bootstrap = require('bootstrap');
+//var jquery = require('jquery');
 
 var app = express();
 
@@ -10,6 +12,13 @@ var bodyparser = bodyParser.urlencoded({extended: false});
 
 /* Set View Engine */
 app.set('view engine', 'pug');
+
+
+/* Set Static Folder */
+app.use('/js',express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+app.use('/css',express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+
+
 
 /* connect mongodb database */
 mongodb.connect('mongodb://sujalpatel:sujalpatel@ds145148.mlab.com:45148/node_demo');
@@ -86,4 +95,13 @@ app.post('/updatedata', bodyparser, function (req, res) {
     res.redirect('/');
 });
 
-app.listen(2209);
+/* Update All Record */
+
+/*app.post('/updatedata', bodyparser, function (req, res) {
+    Datamodel.update({'_id': req.body.id},req.body,function (err,data) {
+        if (err) throw err;
+    });
+    res.redirect('/');
+});*/
+
+app.listen(3333);
