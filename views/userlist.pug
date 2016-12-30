@@ -1,0 +1,26 @@
+html
+    head
+        title #{title}
+
+        body
+            h1 #{tabletitle}
+            .container
+                .main-content
+                    .row(style="padding-bottom:20px")
+                        a(type="button" href="/useraddform") Insert
+                    table(border=1 style="text-align:center")
+                        thead
+                            tr
+                                td SR.NO.
+                                td Firstname
+                                td Lastname
+                                td(colspan=2) Action
+                        tbody
+                            each items in userdetaillist
+                                tr
+                                    td #{items.fname}
+                                    td #{items.lname}
+                                    td
+                                        a(href='/fetchsingle/' + items._id) Update
+                                    td
+                                        a(href='/delete/' + items._id) Delete

@@ -1,0 +1,30 @@
+doctype
+html
+    head
+        title #{title}
+    body
+        header
+            h1 #{message}
+        .container
+            .main-content
+                form(method='post' action='/updatedata' id='adduser')
+                    table(cellspacing=10)
+                        input(type='hidden' name='id' value=userdetaillist._id)
+                        tr
+                            td
+                                label Firstname
+                            td
+                                input(type='text' name='fname' value=userdetaillist.fname)
+                        tr
+                            td
+                                label Lastname
+                            td
+                                input(type='text' name='lname' value=userdetaillist.lname)
+                        tr
+                            td
+                                label Age
+                            td
+                                input(type='number' name='age' value=userdetaillist.age)
+                        tr(style="text-align:center")
+                            td(colspan=2)
+                                input(type='submit' value='add')
