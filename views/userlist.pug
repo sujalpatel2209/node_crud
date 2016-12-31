@@ -13,6 +13,7 @@ html
                             tr
                                 th(class='text-center') Firstname
                                 th(class='text-center') Lastname
+                                th(class='text-center') Marks
                                 th(class='text-center') Update
                                 th(class='text-center') Delete
                         tbody
@@ -20,6 +21,7 @@ html
                                 tr
                                     td #{items.fname}
                                     td #{items.lname}
+                                    td #{items.age}
                                     td
                                         a(href='/fetchsingle/' + items._id) Update
                                     td
