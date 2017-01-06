@@ -18,11 +18,8 @@ app.set('view engine', 'pug');
 app.use('/js',express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/css',express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
-
-
 /* connect mongodb database */
 mongodb.connect('mongodb://sujalpatel:sujalpatel@ds145148.mlab.com:45148/node_demo');
-
 
 /* Create Table Schema */
 var DataSchema = new mongodb.Schema({
@@ -35,7 +32,6 @@ var DataSchema = new mongodb.Schema({
 
 var Datamodel = mongodb.model("user", DataSchema);
 
-
 /* Fetch All Record Detail */
 app.get('/', function (req, res) {
     Datamodel.find({}, function (err, data) {
@@ -44,16 +40,13 @@ app.get('/', function (req, res) {
     });
 });
 
-
 /* Fetch Single Record Detail */
-
 app.get('/fetchsingle/:id', function (req, res) {
     Datamodel.findOne({'_id': req.params.id}, function (err, data) {
         if (err) console.log(err);
         res.render('fetchuserdetail', {'userdetaillist': data, 'title': 'Update', 'message': 'User Update'});
     });
 });
-
 
 /* Show Add User Form */
 app.get('/useraddform', function (req, res) {
@@ -81,7 +74,6 @@ app.get('/delete/:id', function (req, res) {
 });
 
 /* Update User Detail */
-
 app.post('/updatedata', bodyparser, function (req, res) {
     Datamodel.update({'_id': req.body.id}, {
         $set: {
